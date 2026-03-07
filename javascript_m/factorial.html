@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <script> 
+        let number = parseInt(prompt("Enter a number"));
+        let factorial= 1;
+        // let sum=0;
+        if (number<0){
+            document.write("Negative number is exit");
+
+        }
+        else {
+            for(let i= 1; i<=number; i++){
+                factorial = factorial*i ;
+                // sum= sum+factorial;
+
+            }
+            document.write("Factorial of this number is =" + factorial +"<br>");
+            // document.write("sum of this factorial number is =" + sum);
+
+        }
+    </script>
+</body>
+</html>

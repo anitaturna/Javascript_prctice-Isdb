@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <div style="width: 45%; background-color: darksalmon; text-align: center; margin: 0 auto; border-collapse: collapse;"> 
+     <form action="#" name="f"> 
+        <h2 style="text-decoration: underline; color: rgb(17, 61, 126);">Student form</h2>
+        Name: <br>
+        <input type="text" name="n" id=""> <br> <br>
+        Id: <br>
+        <input type="number" name="id" id=""> <br> <br>
+        Address: <br>
+        <textarea name="ad" id="" cols="30"></textarea> <br> <br>
+        G-Mail: <br>
+        <input type="text" name="g" id=""> <br> <br>
+        Round:
+       <select name="rnd"> 
+            <option name="rnd" value="50"  >50</option>
+            <option  name="rnd" value="60" >60</option>
+            <option name="rnd" value="70"  >70</option>
+       </select> <br> <br>
+       Course: 
+       <input type="checkbox" name="crs" value="HTML">HTML
+       <input type="checkbox" name="crs" value="Graphics">Graphics
+       <input type="checkbox" name="crs" value="Webdevelopment">Webdevelopment
+       <input type="checkbox" name="crs" value="Animation">Animation <br>
+       Gender:
+       <input type="radio" name="gn" value="Male">Male 
+       <input type="radio" name="gn" value="Female">Female <br>
+
+        <input style="background-color: rgb(84, 231, 195); color: rgb(13, 71, 179);" type="submit" name="" id="" value="Submit" onclick="info()">
+        <input style="background-color: rgb(84, 231, 195); color: rgb(13, 71, 179);" type="reset" name="" id="">
+    </div> 
+    </form>
+    <script> 
+    
+
+        function info(){
+            nam = document.f.n.value;
+            address = document.f.ad.value;
+            Id = document.f.id.value;
+            G_Mail = document.f.g.value;
+           Round= document.f.rnd.value;
+           Course ="";
+           store=window.open("","", "width=400px,height=400px");
+
+           //Round check
+        //    for(j=0; j<documnet.f.R.length; j++){
+        //     if (document.f.R[j].checked){
+        //         Round +=document.f.R[j].value+ "," ;
+        //     }
+        //    }
+
+           //Check Course
+           for(j=0; j<document.f.crs.length; j++){
+            if(document.f.crs[j].checked){
+                Course += document.f.crs[j].value+ "," ;
+            }
+           }
+
+           //check gender
+           for(j=0; j<document.f.gn.length; j++){
+            if(document.f.gn[j].checked){
+                Gender = document.f.gn[j].value+ "," ;
+            }
+           }
+
+
+
+
+           store.document.write("student name: " + nam + "<br>");
+           store.document.write("student address: " + address + "<br>");
+           store.document.write("student ID: " + Id + "<br>");
+           store.document.write("student g-mail: " + G_Mail +"<br>");
+           store.document.write("Round: " + Round +"<br>");
+           store.document.write("student course: " + Course +"<br>");
+           store.document.write("Gender: " + Gender +"<br>" );
+           store.document.write('<input type="button" onclick = self.close(); value="close me"/>')
+           store.document.write('<input type="button" onclick = self.print(); value="print"/>')
+
+        }
+    </script>
+</body>
+</html>

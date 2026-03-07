@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>negative-positive</title>
+</head>
+<body>
+    <script> 
+        var data = [4, 4, -4, -1, 0, -8, 0, 45, 9, 79, 0];
+        let positiveElement = 0;
+        let negativeElement = 0;
+        let zeroElement = 0;
+        let sum = 0;  
+        for(let i=0; i<=data.length; i++){
+            if(data[i]>0){
+                positiveElement ++ ;
+                sum+=data[i];
+            }
+            else if(data[i]<0){
+                negativeElement ++ ;
+                sum+=data[i];
+            } 
+            else if( data[i]== 0){
+                zeroElement ++ ;
+
+            }
+        }
+        document.writeln("possitivelement:",positiveElement + "<br>");
+        document.writeln("negtivelement:",negativeElement +"<br>" );
+        document.writeln("zarolement:", zeroElement +"<br>");
+        document.writeln("sum of array:", sum );
+
+    </script>
+</body>
+</html>
