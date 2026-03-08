@@ -17,6 +17,8 @@
         <textarea name="ad" id="" cols="30"></textarea> <br> <br>
         G-Mail: <br>
         <input type="text" name="g" id=""> <br> <br>
+        Password: <br>
+        <input type="text" name="pass" id=""> <br> <br>
         Round:
        <select name="rnd"> 
             <option name="rnd" value="50"  >50</option>
@@ -41,12 +43,41 @@
 
         function info(){
             nam = document.f.n.value;
+            if(nam == ""){
+                alert ("Please fil up the field first");
+            }
+           
+
             address = document.f.ad.value;
+            if(address == ""){
+                alert("Please fil up the field first");
+            }
             Id = document.f.id.value;
+            if(Id== ""){
+                alert("Please enter your ID");
+            }
+
             G_Mail = document.f.g.value;
+            if(G_Mail == ""){
+                alert ("Email Required");
+                return false;
+            }
+             else if (G_Mail.indexOf("@")== -1 || G_Mail.indexOf(".")== -1){
+                alert ("Invalid email");
+                return false;
+
+            }
+
+            Password = document.f.pass.value;
+            if ( Password.length < 4 || Password.length > 8) {
+                alert("Password must be between 4 and 8 characters");
+                return false;
+            }
+
            Round= document.f.rnd.value;
            Course ="";
            store=window.open("","", "width=400px,height=400px");
+
 
            //Round check
         //    for(j=0; j<documnet.f.R.length; j++){
@@ -76,6 +107,7 @@
            store.document.write("student address: " + address + "<br>");
            store.document.write("student ID: " + Id + "<br>");
            store.document.write("student g-mail: " + G_Mail +"<br>");
+           store.document.write("Enter password: " + Password +"<br>");
            store.document.write("Round: " + Round +"<br>");
            store.document.write("student course: " + Course +"<br>");
            store.document.write("Gender: " + Gender +"<br>" );
