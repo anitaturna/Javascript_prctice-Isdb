@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom2form</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 45%;
+        background-color: rgb(109, 199, 235);
+        padding-left: 30px;
+        padding-top: 20px;
+        margin: 0 auto;
+        border-collapse: collapse;
+      "
+    >
+      <form action="#" name="fnc">
+        Name: <br />
+        <input type="text" name="num" id="" /> <br /><br />
+        Email: <br />
+        <input type="text" name="mail" id="" /> <br />
+        <br />
+        Course:
+        <input type="checkbox" name="c" id="" value="HTML" />HTML
+        <input type="checkbox" name="c" id="" value="Javascript" />Javascript
+        <input type="checkbox" name="c" id="" value="PHP" />PHP <br />
+        <br />
+        Gender:
+        <input type="radio" name="g" id="" value="Male" />Male
+        <input type="radio" name="g" id="" value="Female" />Female <br />
+        <br />
+        Department:
+        <select name="op" id="">
+          <option name="op" value="CSE">CSE</option>
+          <option name="op" value="EEE">EEE</option>
+          <option name="op" value="BBA">BBA</option>
+        </select>
+        <br />
+        <br />
+        Password: <br />
+        <input type="text" name="ps" id="" /> <br />
+        <br />
+        <input
+          style="background-color: coral"
+          type="submit"
+          value="Submit"
+          name="s"
+          id=""
+          onclick="info()"
+        />
+        <input
+          style="background-color: coral"
+          type="reset"
+          value="Reset"
+          name="r"
+          id=""
+        />
+        <br />
+        <br />
+      </form>
+    </div>
+
+    <script>
+      function info() {
+        //name validation
+        num = document.fnc.num.value;
+        if (num == "") {
+          alert("Please fill the field");
+          return false;
+        }
+
+        //email validation
+        email = document.fnc.mail.value;
+        if (email == "") {
+          alert("Email Required");
+          return false;
+        } else if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+          alert("Invalid email");
+          return false;
+        }
+
+        course = "";
+
+        // course chk
+        for (j = 0; j < document.fnc.c.length; j++) {
+          if (document.fnc.c[j].checked) {
+            course += document.fnc.c[j].value + ",";
+          }
+        }
+
+        //gender chk
+        gender = "";
+        for (j = 0; j < document.fnc.g.length; j++) {
+          if (document.fnc.g[j].checked) {
+            gender = document.fnc.g[j].value;
+          }
+        }
+
+        department = document.fnc.op.value;
+
+        // password validation
+        password = document.fnc.ps.value;
+        if (password == "") {
+          alert("Please fill the field");
+          return false;
+        } else if (password.length < 5 || password.length > 8) {
+          alert("Password must be between 5 and 8 characters");
+          return false;
+        }
+
+        // new window css
+        store = window.open("", "", "width=400px,height=400px");
+
+        store.document.write("Student name: " + num + "<br>");
+        store.document.write("Student e-mail: " + email + "<br>");
+        store.document.write("course: " + course + "<br>");
+        store.document.write("gender: " + gender + "<br>");
+        store.document.write("department: " + department + "<br>");
+        store.document.write("enter password: " + password + "<br>");
+        store.document.write(
+          '<input type="button" onclick = self.close(); value="close me"/>',
+        );
+        store.document.write(
+          '<input type="button" onclick = self.print(); value="print"/>',
+        );
+        return false;
+      }
+      
+    </script>
+  </body>
+</html>
